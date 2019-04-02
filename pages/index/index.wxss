@@ -1,0 +1,48 @@
+/* pages/index/index.wxss */
+
+view {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  height: 100%;
+  width: 750rpx;
+}
+
+.banners {
+  width: 750rpx;
+  /* height: 580rpx; */
+  flex-direction: column;
+}
+
+.swiper-img {
+  width: 750rpx;
+  height: 380rpx;
+}
+
+.navigation {
+  width: 750rpx;
+  height: 240rpx;
+  margin: 10rpx 0 10rpx 0;
+  background-color: #ddd;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-item {
+  width: 25%;
+  height: 100rpx;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  /* margin-bottom: 20rpx; */
+}
+
+.nav-item image {
+  width: 60rpx;
+  height: 60rpx;
+}
