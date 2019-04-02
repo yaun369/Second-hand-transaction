@@ -1,1 +1,22 @@
 /* pages/submit/submit.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-view {
+  display: flex;
+  flex-direction: column;
+  width: 690rpx;
+  margin: 30rpx;
+}
+
+input {
+  border: 2rpx solid #2c2c2c;
+  border-radius: 16rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  padding: 0 20rpx 0 20rpx;
+}

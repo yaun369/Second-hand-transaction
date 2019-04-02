@@ -24,7 +24,7 @@ view {
 .navigation {
   width: 750rpx;
   height: 240rpx;
-  margin: 10rpx 0 10rpx 0;
+  margin: 30rpx 0 10rpx 0;
   background-color: #ddd;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,4 +45,52 @@ view {
 .nav-item image {
   width: 60rpx;
   height: 60rpx;
+}
+
+.shop-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 750rpx;
+}
+
+.shop-item {
+  flex-direction: column;
+  align-items: center;
+  width: 320rpx;
+  margin: 20rpx;
+  height: 100%;
+  font-size: 26rpx;
+  background-color: #ddd;
+  border-radius: 14rpx;
+}
+
+.shop-image {
+  width: 320rpx;
+  height: 250rpx;
+  border-radius: 14rpx;
+}
+
+.shop-user{
+  color: #1296db;
+  width: 300rpx;
+  margin: 10rpx;
+}
+
+.shop-title{
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 300rpx;
+  margin: 0 10rpx 0 10rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.shop-value{
+  width: 300rpx;
+  margin: 10rpx;
+  font-weight: 500;
+  color: red;
 }

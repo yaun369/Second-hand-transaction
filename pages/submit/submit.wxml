@@ -1,2 +1,16 @@
 <!--pages/submit/submit.wxml-->
-<text>pages/submit/submit.wxml</text>
+<view class='container'>
+  <form class='form-view'>
+    <input></input>
+    <textarea></textarea>
+    <view class='image-view'>
+      <image wx:for='{{preview}}' src='{{item.src}}'></image>
+    </view>
+  </form>
+  <view class='submit-info'>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+  </view>
+</view>

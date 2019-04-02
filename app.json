@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/class/class",
     "pages/user/user",
-    "pages/submit/submit"
+    "pages/submit/submit",
+    "pages/shopInfo/shopInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

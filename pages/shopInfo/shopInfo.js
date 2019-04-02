@@ -1,11 +1,11 @@
-// pages/submit/submit.js
+// pages/shopInfo/shopInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    preview:['../../images/camera.png']
+
   },
 
   /**
