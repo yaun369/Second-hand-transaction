@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .form-view {
@@ -19,4 +19,33 @@ input {
   height: 100rpx;
   font-size: 30rpx;
   padding: 0 20rpx 0 20rpx;
+}
+
+.title-text {
+  font-size: 30rpx;
+  color: #2c2c2c;
+  font-weight: 800;
+  padding-top: 30rpx;
+}
+
+textarea {
+  width: 650rpx;
+  border: 2rpx solid #2c2c2c;
+  border-radius: 16rpx;
+  height: 400rpx;
+  font-size: 30rpx;
+  padding: 20rpx;
+}
+
+.image-view {
+  width: 690rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-view image{
+  width: 210rpx;
+  height: 210rpx;
+  margin: 10rpx;
 }

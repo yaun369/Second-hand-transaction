@@ -45,7 +45,7 @@ Page({
       value: '200.34'
     }, {
       id: 3,
-      user: 'tt收藏sd',
+        user: 'tt收藏sdtt收藏sdtt收藏sd',
       image: 'http://bmob-cdn-20041.b0.upaiyun.com/2018/06/28/a7da358740a1268a80bd00998be8b7b6.jpg',
       title: '天天快递桑萨努时代',
       value: '200.34'

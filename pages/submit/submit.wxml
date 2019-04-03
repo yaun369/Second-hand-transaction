@@ -2,9 +2,10 @@
 <view class='container'>
   <form class='form-view'>
     <input></input>
-    <textarea></textarea>
+    <text class='title-text'>详情：</text>
+    <textarea ></textarea>
     <view class='image-view'>
-      <image wx:for='{{preview}}' src='{{item.src}}'></image>
+      <image wx:for='{{preview}}' wx:key='index' src='{{item}}'></image>
     </view>
   </form>
   <view class='submit-info'>
