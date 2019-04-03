@@ -1,17 +1,15 @@
 <!--pages/submit/submit.wxml-->
 <view class='container'>
-  <form class='form-view'>
-    <input></input>
-    <text class='title-text'>详情：</text>
-    <textarea ></textarea>
-    <view class='image-view'>
-      <image wx:for='{{preview}}' wx:key='index' src='{{item}}'></image>
+  <form bindsubmit="formSubmit" class='form-view'>
+    <input name='title' placeholder='请输入物品名称：'></input>
+    <textarea name='info' placeholder='请描述物品详情：'></textarea>
+    <input name='wechat' placeholder='请输入准确的微信号：'></input>
+    <view class='image-view' bindtap='updataImages'>
+      <image wx:for='{{preview}}' wx:key='index' src='{{item}}' mode='aspectFill'></image>
+    </view>
+    <view class='submit-info'>平台只是媒介，任何交易均存在风险。买家卖家的所有纠纷均与平台无关。二手商品暂无售后，请确保有效沟通。联系方式只支持买家单方面获取卖家微信号。</view>
+    <view class='footer'>
+      <button form-type="submit">发布物品</button>
     </view>
   </form>
-  <view class='submit-info'>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-  </view>
 </view>

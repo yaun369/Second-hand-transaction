@@ -62,7 +62,7 @@ view {
   font-size: 26rpx;
   /* background-color: #ddd; */
   border-radius: 20rpx;
-  box-shadow: 0rpx 6rpx 10rpx #eee;
+  box-shadow: 0rpx 6rpx 6rpx 2rpx #eee;
 }
 
 .shop-image {

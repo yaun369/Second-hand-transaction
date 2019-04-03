@@ -1,1 +1,36 @@
 /* pages/class/class.wxss */
+
+.class-view {
+  width: 750rpx;
+  height: 460rpx;
+  margin-bottom: 60rpx;
+}
+
+.class-title {
+  margin: 10rpx 0 20rpx 50rpx;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.class-item {
+  display: flex;
+  flex-direction: column;
+  width: 260rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 2rpx 6rpx rgba(0, 0, 0, 0.6);
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.item-image {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.item-subtitle{
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  font-weight: 800;
+}
