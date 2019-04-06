@@ -20,7 +20,18 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         that.setData({
           preview: tempFilePaths
-        })
+        });
+        // wx.uploadFile({
+        //   url: 'https://wxapp.geekreading.cn/upload',
+        //   filePath: tempFilePaths[0],
+        //   name: 'file',
+        //   formData: {
+        //     user: 'test'
+        //   },
+        //   success(res) {
+        //     const data = res.data;
+        //   }
+        // });
       }
     })
   },
