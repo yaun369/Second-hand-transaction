@@ -1,1 +1,71 @@
 /* pages/shopInfo/shopInfo.wxss */
+
+view {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 750rpx;
+  margin-bottom: 150rpx;
+}
+
+.swiper-img {
+  width: 690rpx;
+  height: 400rpx;
+  border-radius: 20rpx;
+}
+
+.user {
+  flex-direction: column;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid #0fd8a4;
+}
+
+.user-nickname {
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  width: 200rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.shop-info {
+  width: 650rpx;
+  background-color: #afcfc7;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 120rpx;
+}
+
+.footer button {
+  width: 690rpx;
+  height: 80%;
+  background-color: #0fd8a4;
+  color: #fff;
+}

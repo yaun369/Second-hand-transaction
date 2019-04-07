@@ -1,0 +1,2 @@
+/* pages/showSubmit/showSubmit.wxss */
+@import '../submit/submit.wxss';

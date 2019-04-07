@@ -1,1 +1,46 @@
 /* pages/user/user.wxss */
+
+view {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-header {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 690rpx;
+  height: 400rpx;
+  background-color: #99eed8;
+  border-radius: 20rpx;
+}
+
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+}
+
+.nickname {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #1296db;
+}
+
+button{
+  margin-top:40rpx; 
+  width: 500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0fd8a4;
+}

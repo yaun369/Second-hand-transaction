@@ -2,6 +2,11 @@
 <view class='container'>
   <form bindsubmit="formSubmit" class='form-view'>
     <input name='title' placeholder='请输入物品名称：'></input>
+    <view class="section">
+      <view class="section-title">请选择物品分类：</view>
+      <picker name='class' bindchange="bindPickerChange" value='{{index}}' range="{{classArray}}">{{classArray[index]}}
+</picker>
+    </view>
     <textarea name='info' placeholder='请描述物品详情：'></textarea>
     <input name='wechat' placeholder='请输入准确的微信号：'></input>
     <view class='image-view' bindtap='updataImages'>

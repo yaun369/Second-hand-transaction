@@ -1,0 +1,21 @@
+<!--pages/show/show.wxml-->
+<view class='container'>
+  <view class='show-list' wx:for='{{showList}}' wx:key='index_list'>
+    <swiper indicator-dots style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;'>
+      <swiper-item wx:for='{{item.images}}' wx:key='index' style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;'>
+        <image class='swiper-img' src='{{item}}' mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+    <view class='show-info'>
+      <view class='show-user'>
+        <image src='{{item.avatar}}'></image>
+        <text>{{item.nickname}}</text>
+      </view>
+      <view class='show-text'> “{{item.info}}”</view>
+    </view>
+  </view>
+  <button class='submit-button' bindtap='goToSubmit'>
+    <image src='../../icons/submit-on.png' mode='widthFix'></image>
+    <text>发布</text>
+  </button>
+</view>

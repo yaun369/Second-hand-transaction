@@ -13,6 +13,28 @@
   margin: 30rpx 30rpx 140rpx 30rpx;
 }
 
+.section {
+  width: 690rpx;
+  margin-top: 20rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30rpx;
+  height: 100rpx;
+}
+
+.section-title{
+  margin-left: 20rpx;
+  color: #808090;
+}
+
+.section picker{
+  width: 400rpx;
+  text-align: center;
+}
+
 input {
   border: 2rpx solid #ddd;
   border-radius: 16rpx;

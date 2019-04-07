@@ -1,0 +1,12 @@
+<!--pages/showSubmit/showSubmit.wxml-->
+<view class='container'>
+  <form bindsubmit="formSubmit" class='form-view'>
+    <textarea name='info' placeholder='请输入买家秀详情：'></textarea>
+    <view class='image-view' bindtap='updataImages'>
+      <image wx:for='{{preview}}' wx:key='index' src='{{item}}' mode='aspectFill'></image>
+    </view>
+    <view class='footer'>
+      <button form-type="submit">发布买家秀</button>
+    </view>
+  </form>
+</view>

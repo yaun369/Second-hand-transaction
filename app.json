@@ -4,7 +4,10 @@
     "pages/class/class",
     "pages/user/user",
     "pages/submit/submit",
-    "pages/shopInfo/shopInfo"
+    "pages/shopInfo/shopInfo",
+    "pages/classInfo/classInfo",
+    "pages/show/show",
+    "pages/showSubmit/showSubmit"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,86 @@
+/* pages/show/show.wxss */
+
+view {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 750rpx;
+  margin-bottom: 20rpx;
+}
+
+.show-list {
+  flex-direction: column;
+  align-items: center;
+  width: 690rpx;
+  margin: 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 6rpx 6rpx 2rpx #eee;
+}
+
+.swiper-img {
+  width: 750rpx;
+  height: 380rpx;
+  border-radius: 20rpx;
+}
+
+.show-info {
+  width: 690rpx;
+  flex-direction: column;
+}
+
+.show-user {
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #0fd8a4;
+  margin: 20rpx;
+}
+
+.show-user image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  border: 4rpx solid #0fd8a4;
+}
+
+.show-text {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  margin: 0 20rpx 20rpx 20rpx;
+}
+
+.submit-button {
+  position: fixed;
+  bottom: 200rpx;
+  right: 50rpx;
+  width: 100rpx;
+  height: 180rpx;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button::after {
+  border: 0;
+}
+
+.submit-button image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.submit-button text {
+  font-size: 26rpx;
+  width: 100rpx;
+  font-weight: bold;
+  color: #0fd8a4;
+}

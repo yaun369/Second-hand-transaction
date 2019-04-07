@@ -1,19 +1,11 @@
-// pages/submit/submit.js
+// pages/showSubmit/showSubmit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    preview: ['../../images/add.png'],
-    index: 0,
-    classArray: ['图书', '体育', '服饰', '数码']
-  },
-  bindPickerChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    preview: ['../../images/add.png']
   },
   formSubmit(e) {
     console.log(e.detail.value);
@@ -43,6 +35,7 @@ Page({
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
