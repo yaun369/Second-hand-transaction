@@ -14,7 +14,7 @@ export let asyncRouterMapAdmin = [
     meta: {
       title: 'bannersList',
       roles: 'bannersList',
-      icon: 'goods'
+      icon: 'orderlist'
     },
     children: [{
       path: 'bannersList',
@@ -23,7 +23,7 @@ export let asyncRouterMapAdmin = [
       name: 'bannersList',
       meta: {
         title: 'bannersList',
-        icon: 'goods',
+        icon: 'orderlist',
         noCache: true
       }
     }]

@@ -1,11 +1,13 @@
 // pages/index/index.js
+const Bmob = require('../../utils/Bmob-1.7.0.min.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    banners: ["http://bmob-cdn-20041.b0.upaiyun.com/2018/06/28/a7da358740a1268a80bd00998be8b7b6.jpg", "http://bmob-cdn-20041.b0.upaiyun.com/2018/06/28/53f44ecb4041b0ed8085347bb77f858a.jpg", "http://bmob-cdn-20041.b0.upaiyun.com/2018/06/28/f25d00e340db95f580430ee6757f5bd5.jpg"],
+    banners: [],
     navigation: [{
       id: 2,
       src: '../../images/read.png',
@@ -79,16 +81,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // wx.request({
-    //   url: 'https://wxapp.geekreading.cn/index/shopList',
-    //   data: {},
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success(res) {
-    //     console.log(res.data);
-    //   }
-    // });
+
   },
 
   /**
@@ -102,7 +95,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    const query = Bmob.Query("banner");
+    query.find().then(res => {
+      console.log(res);
+      this.setData({
+        banners: res
+      })
+    });
   },
 
   /**

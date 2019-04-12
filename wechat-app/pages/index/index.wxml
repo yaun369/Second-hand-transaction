@@ -7,7 +7,7 @@
   <view class='banners'>
     <swiper autoplay indicator-dots style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;'>
       <swiper-item wx:for='{{banners}}' wx:key='index' style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;'>
-        <image class='swiper-img' src='{{item}}' mode='widthFix'></image>
+        <image class='swiper-img' src='{{item.image}}' mode='widthFix'></image>
       </swiper-item>
     </swiper>
     <view class='navigation'>

@@ -38,7 +38,7 @@
       <el-table-column type="index" width="50"></el-table-column>
       <el-table-column label="图片">
         <template slot-scope="scope">
-          <img :src="scope.row.banner_pic" style="width:100px;height: 80px;">
+          <img :src="scope.row.image" style="width:100px;height: 80px;">
         </template>
       </el-table-column>
       <!-- <el-table-column label="标题" prop="title"></el-table-column> -->
@@ -70,6 +70,7 @@ import {
   deleteBanners,
   upFile
 } from "@/api/buyPigList";
+const query = Bmob.Query("banner");
 export default {
   created() {
     //获取列表
@@ -134,25 +135,26 @@ export default {
       this.isShowAdd = true;
       this.form = this.tableData[index];
       console.log(this.form);
-
       this.dialogVisible = true;
     },
     toDelete(index) {
       //删除
-      let data = {
-        banner_id: this.tableData[index].banner_id
-      };
-      deleteBanners(data).then(res => {
-        console.log("delete", res);
-        this.getSomeList({});
-      });
+      let id = this.tableData[index].objectId;
+      query
+        .destroy(id)
+        .then(res => {
+          console.log(res);
+          this.getSomeList();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    getSomeList(data) {
+    getSomeList() {
       //获取列表
-      let getData = Object.assign(data, this.listQuery);
-      getBanners(getData).then(res => {
-        console.log(res.data);
-        this.tableData = res.data;
+      query.find().then(res => {
+        console.log(res);
+        this.tableData = res;
       });
     },
     onAddPrice() {
@@ -163,56 +165,22 @@ export default {
       this.form.image = [];
       this.form.title = "";
     },
-    onYesEdit() {
-      //确定编辑
-      if (!this.file) {
-        console.log("form", this.form);
-        let data = {
-          id: this.form.id,
-          type: 0,
-          image: this.form.image,
-          title: this.form.title
-        };
-        editBanners(data).then(res => {
-          console.log(res);
-          if (!res.status) {
-            this.dialogVisible = false;
-            this.getSomeList({});
-          }
-        });
-      } else {
-        let formData = new FormData();
-        formData.append("file", this.file.raw);
-        formData.append("type", 1);
-        upFile(formData).then(res => {
-          let data = {
-            id: this.form.id,
-            type: 0,
-            image: res.data.imgurl,
-            title: this.form.title
-          };
-          editBanners(data).then(res => {
-            console.log(res);
-            if (!res.status) {
-              this.dialogVisible = false;
-              this.getSomeList({});
-            }
-          });
-        });
-      }
-    },
     onSubmit() {
       //确定添加
       let pic = Bmob.File(this.file.name, this.file.raw);
       pic.save().then(res => {
         console.log(res);
-        let data = {
-          banner_pic: res[0].url
-        };
-        addBanners(data).then(res => {
-          this.dialogVisible = false;
-          this.getSomeList({});
-        });
+        query.set("image", res[0].url);
+        query
+          .save()
+          .then(res => {
+            console.log(res);
+            this.dialogVisible = false;
+            this.getSomeList();
+          })
+          .catch(err => {
+            console.log(err);
+          });
       });
     },
     //上传图片
