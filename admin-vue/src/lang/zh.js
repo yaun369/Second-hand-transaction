@@ -12,7 +12,7 @@ export default {
     comment: '评论',
     infoManagement: "运营",
     type: '分类信息',
-    pigSchool: '平台文章管理',
+    pigSchool: '买家秀',
     pigNews: '养猪资讯',
     brandEnterprise: '品牌企业',
     memberList: '人员列表',
@@ -44,8 +44,7 @@ export default {
 
     server: '运营',
     serverBanner: '养猪学院',
-    serverEnrty: '商品分类',
-    pigAnalysis: '技术文章管理',
+    pigAnalysis: '商品分类',
     serverAct: '动态',
     serverShop: '店铺介绍',
     serverAllbuy: '团购',

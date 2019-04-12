@@ -3,102 +3,17 @@
 
 <template>
   <div class="app-container">
-    <el-dialog :visible.sync="dialogVisible">
-      <div style="margin: 20px;"></div>
-      <el-form label-position="right" label-width="80px" :model="form">
-        <el-form-item label="图片">
-          <el-upload
-            action
-            list-type="picture-card"
-            :limit="1"
-            :auto-upload="false"
-            :file-list="form.terrace_image | filterUrl"
-            :on-change="handleImgChange"
-            :on-remove="handleRemove"
-          >
-            <i class="el-icon-plus"></i>
-          </el-upload>
-        </el-form-item>
-        <el-form-item label="平台名称">
-          <el-input v-model="form.terrace_name" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="分类">
-          <el-select v-model="form.classification_id" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="平台链接">
-          <el-input v-model="form.terrace_link" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="产品名称">
-          <el-input v-model="form.terrace_product" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="额度">
-          <el-input v-model="form.terrace_lines" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="通过率">
-          <el-input v-model="form.terrace_probability" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="平台认证">
-          <el-input v-model="form.terrace_identification" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="申请人数">
-          <el-input v-model="form.terrace_apply" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="平台评分">
-          <el-input v-model="form.terrace_grade" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="下款时间">
-          <el-date-picker
-            v-model="form.terrace_undersigned"
-            value-format="yyyy-MM-dd"
-            type="date"
-            placeholder="选择日期"
-          ></el-date-picker>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" v-if="!isShowAdd" @click="onSubmit">确定添加</el-button>
-          <el-button type="primary" v-if="isShowAdd" @click="onYesEdit">确定编辑</el-button>
-          <el-button @click="dialogVisible=false">取消</el-button>
-        </el-form-item>
-      </el-form>
-    </el-dialog>
-
-    <div class="filter-container">
-      <el-button type="primary" @click="onAddPrice">添加技术文章</el-button>
-      <el-select v-model="valueID" placeholder="请选择分类" @change="serachClass">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
-    </div>
-
     <el-table :data="tableData" style="width: 100%">
       <el-table-column type="index" width="50"></el-table-column>
       <el-table-column label="图片">
         <template slot-scope="scope">
-          <img :src="scope.row.terrace_image" style="width:100px;height: 80px;">
+          <img :src="scope.row.image" style="width:100px;height: 80px;">
         </template>
       </el-table-column>
-      <el-table-column label="平台名称" prop="terrace_name"></el-table-column>
-      <el-table-column label="产品名称" prop="terrace_product"></el-table-column>
-      <el-table-column label="分类" prop="classification_name"></el-table-column>
-      <el-table-column label="平台认证" prop="terrace_identification"></el-table-column>
-      <el-table-column label="预估通过率" prop="terrace_probability"></el-table-column>
-      <el-table-column label="评分" prop="terrace_grade"></el-table-column>
-      <el-table-column label="额度" prop="terrace_lines"></el-table-column>
-      <el-table-column label="下款时间" prop="terrace_undersigned"></el-table-column>
-      <el-table-column label="平台链接" prop="terrace_link"></el-table-column>
-      <el-table-column label="申请人数" prop="terrace_apply"></el-table-column>
-      <el-table-column label="添加时间" prop="terrace_addtime"></el-table-column>
+      <el-table-column label="买家昵称" prop="nickname"></el-table-column>
+      <el-table-column label="产品名称" prop="name"></el-table-column>
+      <el-table-column label="内容" prop="content"></el-table-column>
+      <el-table-column label="添加时间" prop="time"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button @click="toLookInfo(scope.$index)" type="primary" size="small">编辑</el-button>
@@ -129,7 +44,7 @@ import {
 export default {
   created() {
     //获取列表
-    this.getSomeList({});
+    // this.getSomeList({});
   },
   filters: {
     //这里进行加入url到Ui框架
@@ -190,7 +105,32 @@ export default {
       selectValue: "",
       selectValue_s: "",
       input: "",
-      tableData: [],
+      tableData: [
+        {
+          image:
+            "http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/8f9c73a540f3711c80355af65878e9a3.jpg",
+          nickname: "可爱老哥",
+          name: "huaweiPRO8",
+          content: "很开心的一次交易，希望平台越做越好！",
+          tiem: "2019-04-15"
+        },
+        {
+          image:
+            "http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/8f9c73a540f3711c80355af65878e9a3.jpg",
+          nickname: "可爱老哥",
+          name: "huaweiPRO8",
+          content: "很开心的一次交易，希望平台越做越好！",
+          tiem: "2019-04-15"
+        },
+        {
+          image:
+            "http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/8f9c73a540f3711c80355af65878e9a3.jpg",
+          nickname: "可爱老哥",
+          name: "huaweiPRO8",
+          content: "很开心的一次交易，希望平台越做越好！",
+          tiem: "2019-04-15"
+        }
+      ],
       form: {},
       //分页（请求参数）
       listQuery: {

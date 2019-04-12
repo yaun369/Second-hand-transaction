@@ -47,28 +47,18 @@
     </el-dialog>
 
     <div class="filter-container">
-      <el-button type="primary" @click="onAddPrice">添加技术文章</el-button>
-      <el-select v-model="valueID" placeholder="请选择分类" @change="serachClass">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
+      <el-button type="primary" @click="onAddPrice">添加物品分类</el-button>
     </div>
 
     <el-table :data="tableData" style="width: 100%">
       <el-table-column type="index" width="50"></el-table-column>
       <el-table-column label="图片">
         <template slot-scope="scope">
-          <img :src="scope.row.technology_image" style="width:100px;height: 80px;">
+          <img :src="scope.row.image" style="width:100px;height: 80px;">
         </template>
       </el-table-column>
-      <el-table-column label="标题" prop="technology_title"></el-table-column>
-      <el-table-column label="分类" prop="classification_name"></el-table-column>
-      <el-table-column label="点击量" prop="technology_views"></el-table-column>
-      <el-table-column label="时间" prop="technology_addtime"></el-table-column>
+      <el-table-column label="分类名称" prop="name"></el-table-column>
+      <el-table-column label="时间" prop="time"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button @click="toLookInfo(scope.$index)" type="primary" size="small">编辑</el-button>
@@ -100,7 +90,7 @@ import {
 export default {
   created() {
     //获取列表
-    this.getSomeList({});
+    // this.getSomeList({});
   },
   filters: {
     //这里进行加入url到Ui框架
@@ -126,30 +116,36 @@ export default {
   data() {
     return {
       valueID: null,
-      options: [
-        {
-          value: "3",
-          label: "最新口子"
-        },
-        {
-          value: "4",
-          label: "新手专区"
-        },
-        {
-          value: "5",
-          label: "技术干货"
-        },
-        {
-          value: "6",
-          label: "办卡提额"
-        }
-      ],
       dateArr: [],
       isShowAdd: false,
       selectValue: "",
       selectValue_s: "",
       input: "",
-      tableData: [],
+      tableData: [{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"图书",
+        time:"2019-03-17"
+      },{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"数码",
+        time:"2019-03-17"
+      },{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"体育",
+        time:"2019-03-17"
+      },{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"文娱",
+        time:"2019-03-17"
+      },{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"服饰",
+        time:"2019-03-17"
+      },{
+        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
+        name:"其他",
+        time:"2019-03-17"
+      }],
       form: {},
       //分页（请求参数）
       listQuery: {

@@ -47,25 +47,26 @@ export let asyncRouterMapAdmin = [
   //     }
   //   }]
   // },
+  {
+    path: '/commodityManagement', //商品管理
+    component: Layout,
+    redirect: '/commodityManagement/index',
+    meta: {
+      roles: 'commodityManagement'
+    },
+    children: [{
+      path: 'index',
+      component: () =>
+        import('@/views/commodityManagement/index'),
+      name: 'commodityManagement',
+      meta: {
+        title: 'commodityManagement',
+        icon: 'goods',
+        noCache: true
+      }
+    }]
+  }, 
   // {
-  //   path: '/commodityManagement', //商品管理
-  //   component: Layout,
-  //   redirect: '/commodityManagement/index',
-  //   meta: {
-  //     roles: 'commodityManagement'
-  //   },
-  //   children: [{
-  //     path: 'index',
-  //     component: () =>
-  //       import('@/views/commodityManagement/index'),
-  //     name: 'commodityManagement',
-  //     meta: {
-  //       title: 'commodityManagement',
-  //       icon: 'goods',
-  //       noCache: true
-  //     }
-  //   }]
-  // }, {
   //   path: '/orderManagement', //订单管理
   //   component: Layout,
   //   redirect: '/orderManagement/index',
