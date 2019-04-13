@@ -12,31 +12,15 @@
             list-type="picture-card"
             :limit="1"
             :auto-upload="false"
-            :file-list="form.technology_image | filterUrl"
+            :file-list="form.image | filterUrl"
             :on-change="handleImgChange"
             :on-remove="handleRemove"
           >
             <i class="el-icon-plus"></i>
           </el-upload>
         </el-form-item>
-        <el-form-item label="标题">
-          <el-input v-model="form.technology_title" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="分类">
-          <el-select v-model="form.classification_id" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="浏览量">
-          <el-input v-model="form.technology_views" style="width: 500px;"></el-input>
-        </el-form-item>
-        <el-form-item label="内容">
-          <el-input type="textarea" v-model="form.technology_content" style="width: 500px;"></el-input>
+        <el-form-item label="分类名称">
+          <el-input v-model="form.title" style="width: 500px;"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-if="!isShowAdd" @click="onSubmit">确定添加</el-button>
@@ -57,8 +41,8 @@
           <img :src="scope.row.image" style="width:100px;height: 80px;">
         </template>
       </el-table-column>
-      <el-table-column label="分类名称" prop="name"></el-table-column>
-      <el-table-column label="时间" prop="time"></el-table-column>
+      <el-table-column label="分类名称" prop="title"></el-table-column>
+      <el-table-column label="时间" prop="createdAt"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button @click="toLookInfo(scope.$index)" type="primary" size="small">编辑</el-button>
@@ -80,17 +64,11 @@
 </template>
 
 <script>
-import {
-  getLinkpig,
-  addLinkpig,
-  editLinkpig,
-  deleteLinkpig,
-  upFile
-} from "@/api/buyPigList";
+const query = Bmob.Query("class");
 export default {
   created() {
     //获取列表
-    // this.getSomeList({});
+    this.getSomeList();
   },
   filters: {
     //这里进行加入url到Ui框架
@@ -121,31 +99,7 @@ export default {
       selectValue: "",
       selectValue_s: "",
       input: "",
-      tableData: [{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"图书",
-        time:"2019-03-17"
-      },{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"数码",
-        time:"2019-03-17"
-      },{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"体育",
-        time:"2019-03-17"
-      },{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"文娱",
-        time:"2019-03-17"
-      },{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"服饰",
-        time:"2019-03-17"
-      },{
-        image:"http://bmob-cdn-23273.b0.upaiyun.com/2019/01/03/f7aa1664405747f8802fe7c35a083a6a.jpg",
-        name:"其他",
-        time:"2019-03-17"
-      }],
+      tableData: [],
       form: {},
       //分页（请求参数）
       listQuery: {
@@ -170,9 +124,6 @@ export default {
       this.listQuery.page = val;
       this.getSomeList({});
     },
-    serachClass() {
-      this.getSomeList({ classification_id: this.valueID });
-    },
     toLookInfo(index) {
       //详情
       this.form = this.tableData[index];
@@ -181,73 +132,85 @@ export default {
     },
     toDelete(index) {
       //删除
-      let data = {
-        technology_id: this.tableData[index].technology_id
-      };
-      deleteLinkpig(data).then(res => {
-        console.log("delete", res);
-        this.getSomeList({});
-      });
+      let id = this.tableData[index].objectId;
+      query
+        .destroy(id)
+        .then(res => {
+          console.log(res);
+          this.getSomeList();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     getSomeList(data) {
       //获取列表
-      let getData = Object.assign(data, this.listQuery);
-      getLinkpig(getData).then(res => {
-        console.log(res.data);
-        this.tableData = res.data;
+      query.find().then(res => {
+        console.log(res);
+        this.tableData = res;
       });
     },
     onAddPrice() {
       //添加
       this.dialogVisible = true;
       this.isShowAdd = false;
-      console.log(this.form);
-      this.form = {};
-      this.form.technology_image = [];
+      this.form = Object.assign({}, this.form);
+      this.form.image = [];
+      this.form.title = "";
     },
     onYesEdit() {
       //确定编辑
-      let technology_image;
       if (this.file) {
         let pic = Bmob.File(this.file.name, this.file.raw);
         pic.save().then(res => {
           console.log(res);
-          technology_image = res[0].url;
+          this.form.image = res[0].url;
+          query
+            .get(this.form.objectId)
+            .then(res => {
+              console.log(res);
+              res.set("image", this.form.image);
+              res.set("title", this.form.title);
+              res.save();
+              this.getSomeList();
+              this.dialogVisible = false;
+            })
+            .catch(err => {
+              console.log(err);
+            });
         });
-      } else {
-        technology_image = this.form.technology_image;
       }
-      let data = {
-        technology_id: this.form.technology_id,
-        classification_id: this.form.classification_id,
-        technology_title: this.form.technology_title,
-        technology_views: this.form.technology_views,
-        technology_content: this.form.technology_content,
-        technology_image: technology_image
-      };
-      editLinkpig(data).then(res => {
-        console.log("edit", res);
-        this.dialogVisible = false;
-        this.getSomeList({});
-      });
+      query
+        .get(this.form.objectId)
+        .then(res => {
+          console.log(res);
+          res.set("image", this.form.image);
+          res.set("title", this.form.title);
+          res.save();
+          this.getSomeList();
+          this.dialogVisible = false;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    async onSubmit() {
+    onSubmit() {
       //确定添加
       let pic = Bmob.File(this.file.name, this.file.raw);
       pic.save().then(res => {
-        console.log(res);
-        let data = {
-          classification_id: this.form.classification_id,
-          technology_title: this.form.technology_title,
-          technology_views: this.form.technology_views,
-          technology_content: this.form.technology_content,
-          technology_image: res[0].url
-        };
-        addLinkpig(data).then(res => {
-          console.log("add", res);
-          this.dialogVisible = false;
-          this.getSomeList({});
-        });
+        this.form.image = res[0].url;
+        query.set("image", this.form.image);
+        query.set("title", this.form.title);
+        query
+          .save()
+          .then(res => {
+            console.log(res);
+            this.getSomeList();
+            this.dialogVisible = false;
+          })
+          .catch(err => {
+            console.log(err);
+          });
       });
     },
     //上传图片

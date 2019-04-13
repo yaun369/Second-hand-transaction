@@ -4,7 +4,7 @@ Bmob.initialize('e0ec3539a06757d50c24f827689dc745', 'c78133dc19f7d1301595422258e
 App({
   onLaunch: function() {
     Bmob.User.auth().then(res => {
-      console.log(res)
+      // console.log(res)
       console.log('一键登陆成功')
     }).catch(err => {
       console.log(err)

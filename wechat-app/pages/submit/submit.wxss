@@ -27,7 +27,7 @@
 
 .section-title{
   margin-left: 20rpx;
-  color: #808090;
+  /* color: #808090; */
 }
 
 .section picker{
