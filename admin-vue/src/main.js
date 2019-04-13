@@ -25,8 +25,8 @@ import * as filters from './filters' // global filters
 import Bmob from "hydrogen-js-sdk";
 // 初始化
 Bmob.initialize(
-  "1faccd3681e084de99799b6f3817a941",
-  "b98597ecd64e7b593b15306c8beb6198"
+  "e0ec3539a06757d50c24f827689dc745",
+  "c78133dc19f7d1301595422258e03b00"
 );
 // 挂载到全局使用
 Vue.prototype.Bmob = Bmob;
