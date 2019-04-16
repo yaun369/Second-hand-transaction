@@ -37,6 +37,7 @@ Page({
   },
   formSubmit(e) {
     const obj = e.detail.value;
+    // console.log(obj);
     if (this.data.fileList.length === 0) {
       wx.showToast({
         title: '最少上传一张图片哦',
@@ -59,8 +60,9 @@ Page({
       file.save().then(ress => {
         // console.log("ress", ress);
         query.set("image", ress);
+        query.set("user", wx.getStorageSync('userInfo'));
         query.set("title", obj.title);
-        query.set("class", obj.class);
+        query.set("class", obj.class.title);
         query.set("content", obj.info);
         query.set("wechat", obj.wechat);
         query.set("price", obj.price);
@@ -93,6 +95,13 @@ Page({
       }
     })
   },
+  getUserInfo: function(e) {
+    wx.setStorageSync('userInfo', e.detail.userInfo);
+    Bmob.User.upInfo(e.detail.userInfo);
+    this.setData({
+      hasNewUser: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -111,7 +120,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      this.setData({
+        hasNewUser: true
+      })
+    } else {
+      this.setData({
+        hasNewUser: false
+      })
+    }
   },
 
   /**

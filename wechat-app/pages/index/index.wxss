@@ -131,17 +131,17 @@ view {
 }
 
 .shop-user {
-  display: -webkit-box;
+  display: block;
   width: 300rpx;
   margin: 10rpx;
   line-height: 42rpx;
   text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
 }
 
 .shop-title {
+  display: block;
   font-weight: bold;
   width: 300rpx;
   margin: 20rpx 10rpx 0 10rpx;

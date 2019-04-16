@@ -6,7 +6,8 @@
       <image wx:for='{{preview}}' wx:key='index' src='{{item}}' mode='aspectFill'></image>
     </view>
     <view class='footer'>
-      <button form-type="submit">发布买家秀</button>
+      <button wx:if='{{hasNewUser}}' form-type="submit">发布买家秀</button>
+      <button wx:if='{{!hasNewUser}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后方可发布</button>
     </view>
   </form>
 </view>

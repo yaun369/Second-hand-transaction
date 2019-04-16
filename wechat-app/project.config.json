@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.4",
 	"appid": "wx720e119fc64813a0",
-	"projectname": "%E4%BA%8C%E6%89%8B%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0",
+	"projectname": "%E4%BA%8C%E6%89%8B%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0git",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -68,10 +68,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "classInfo",
 					"pathName": "pages/classInfo/classInfo",
-					"query": "",
+					"query": "title=图书",
 					"scene": null
 				},
 				{
@@ -85,6 +85,7 @@
 					"id": -1,
 					"name": "showSubmit",
 					"pathName": "pages/showSubmit/showSubmit",
+					"query": "",
 					"scene": null
 				}
 			]

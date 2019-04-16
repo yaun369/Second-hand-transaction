@@ -14,9 +14,10 @@
     <view class='image-view' bindtap='updataImages'>
       <image wx:for='{{preview}}' wx:key='index' src='{{item}}' mode='aspectFill'></image>
     </view>
-    <view class='submit-info'>平台只是媒介，任何交易均存在风险。买家卖家的所有纠纷均与平台无关。二手商品暂无售后，请确保有效沟通。联系方式只支持买家单方面获取卖家微信号。</view>
+    <view class='submit-info'>平台只是媒介，任何交易均存在风险。买家卖家的所有纠纷均与平台无关。二手商品暂无售后，请确保有效沟通。联系方式只支持买家单方面获取卖家微信号。由于发布商品为本平台的核心操作所以需要您的非关键信息授权，我们确保您的个人信息不会泄露。</view>
     <view class='footer'>
-      <button form-type="submit">发布物品</button>
+      <button wx:if='{{hasNewUser}}' form-type="submit">发布物品</button>
+      <button wx:if='{{!hasNewUser}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后方可发布</button>
     </view>
   </form>
 </view>

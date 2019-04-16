@@ -1,16 +1,17 @@
 <!--pages/shopInfo/shopInfo.wxml-->
 <view class='container'>
   <swiper autoplay indicator-dots style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;'>
-    <swiper-item style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;' wx:for='{{shopImages}}' wx:key='index'>
-      <image class='swiper-img' src='{{item}}' mode='widthFix'></image>
+    <swiper-item style='width:690rpx;height:400rpx;border-radius:20rpx;overflow:hidden;' wx:for='{{obj.image}}' wx:key='index'>
+      <image class='swiper-img' src='{{item.url}}' mode='widthFix'></image>
     </swiper-item>
   </swiper>
   <view class='user'>
-    <image class='user-avatar' src='{{userAvatar}}'></image>
-    <text class='user-nickname'>{{userName}}</text>
+    <image class='user-avatar' src='{{obj.user.avatarUrl}}'></image>
+    <text class='user-nickname'>{{obj.user.nickName}}</text>
   </view>
-  <view class='shop-info'>{{shopInfo}}</view>
+  <view class='shop-info'>{{obj.content}}</view>
   <view class='footer'>
-      <button form-type="submit">复制卖家联系方式</button>
+    <button wx:if='{{hasNewUser}}' bindtap='copyWechat'>复制卖家联系方式</button>
+    <button wx:if='{{!hasNewUser}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后方可复制</button>
   </view>
 </view>

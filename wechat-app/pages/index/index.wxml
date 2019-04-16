@@ -11,7 +11,7 @@
       </swiper-item>
     </swiper>
     <view class='navigation'>
-      <view class='nav-item' wx:for='{{navigation}}' wx:key='index' id='{{item.id}}' bindtap='goToClassInfo'>
+      <view class='nav-item' wx:for='{{navigation}}' wx:key='index' id='{{item.title}}' bindtap='goToClassInfo'>
         <image src='{{item.src}}'></image>
         <text>{{item.title}}</text>
       </view>
@@ -25,12 +25,12 @@
     </view>
   </view>
   <view class='shop-list'>
-    <view class='shop-item' wx:for='{{shopList}}' wx:key='index' id='{{item.id}}' bindtap='goToInfo'>
-      <image class='shop-image' src='{{item.image}}'></image>
+    <view class='shop-item' wx:for='{{shopList}}' wx:key='index' id='{{item.objectId}}' bindtap='goToInfo'>
+      <image class='shop-image' src='{{item.image[0].url}}'></image>
       <view class='shop-title'>{{item.title}}</view>
-      <view class='shop-user'>发布者：{{item.user}}
+      <view class='shop-user'>发布者：{{item.user.nickName}}
       </view>
-      <text class='shop-value'>￥{{item.value}}</text>
+      <text class='shop-value'>￥{{item.price}}</text>
     </view>
     <text wx:if='{{!shopList.length}}' class='no-more'>暂无更多...</text>
   </view>

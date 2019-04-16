@@ -5,7 +5,7 @@ App({
   onLaunch: function() {
     Bmob.User.auth().then(res => {
       // console.log(res)
-      console.log('一键登陆成功')
+      // console.log('一键登陆成功')
     }).catch(err => {
       console.log(err)
     });
