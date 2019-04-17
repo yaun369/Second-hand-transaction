@@ -34,7 +34,7 @@ Page({
   onShow: function() {
     const query = Bmob.Query("show");
     query.find().then(res => {
-      console.log(res);
+      // console.log(res);
       this.setData({
         showList: res
       })

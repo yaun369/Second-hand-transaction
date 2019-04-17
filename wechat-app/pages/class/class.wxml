@@ -4,9 +4,9 @@
     <view class='class-title' style='color:{{item.color}}'>{{item.title}}</view>
     <swiper previous-margin='50rpx' display-multiple-items='2.3' style='width:750rpx;height:380rpx;'>
       <swiper-item wx:for='{{item.classItem}}' wx:key='id_item'>
-        <view class='class-item' id='{{item.objectId}}' bindtap='goToClassInfo'>
-          <image class='item-image' src='{{item.cover}}' mode='aspectFill'></image>
-          <view class='item-subtitle'>{{item.subtitle}}</view>
+        <view class='class-item' id='{{item.title}}' bindtap='goToClassInfo'>
+          <image class='item-image' src='{{item.image}}' mode='aspectFill'></image>
+          <view class='item-subtitle'>{{item.title}}</view>
         </view>
       </swiper-item>
     </swiper>

@@ -104,7 +104,7 @@ export default {
       //分页（请求参数）
       listQuery: {
         page: 1,
-        limit: 10
+        limit: 30
       },
       dialogVisible: false,
       dialogVisible_info: false,
@@ -163,30 +163,17 @@ export default {
       if (this.file) {
         let pic = Bmob.File(this.file.name, this.file.raw);
         pic.save().then(res => {
-          console.log(res);
           this.form.image = res[0].url;
-          query
-            .get(this.form.objectId)
-            .then(res => {
-              console.log(res);
-              res.set("image", this.form.image);
-              res.set("title", this.form.title);
-              res.save();
-              this.getSomeList();
-              this.dialogVisible = false;
-            })
-            .catch(err => {
-              console.log(err);
-            });
         });
       }
+      console.log(this.form);
+      query.set("id", this.form.objectId);
+      query.set("image", this.form.image);
+      query.set("title", this.form.title);
       query
-        .get(this.form.objectId)
+        .save()
         .then(res => {
           console.log(res);
-          res.set("image", this.form.image);
-          res.set("title", this.form.title);
-          res.save();
           this.getSomeList();
           this.dialogVisible = false;
         })
@@ -220,7 +207,7 @@ export default {
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
-      this.form.image = "";
+      this.form.image = [];
     }
   }
 };

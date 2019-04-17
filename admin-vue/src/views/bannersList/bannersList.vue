@@ -112,7 +112,7 @@ export default {
       //分页（请求参数）
       listQuery: {
         page: 1,
-        limit: 10
+        limit: 20
       },
       dialogVisible: false,
       file: null,
@@ -190,7 +190,7 @@ export default {
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
-      this.form.image = "";
+      this.form.image = [];
     }
   }
 };
