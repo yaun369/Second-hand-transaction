@@ -93,7 +93,7 @@
     "postcss-url": "7.3.0",
     "pushstate-server": "^3.1.0",
     "rimraf": "2.6.2",
-    "sass": "^1.18.0",
+    "sass": "^1.19.0",
     "sass-loader": "6.0.6",
     "script-loader": "0.7.2",
     "semver": "5.4.1",
